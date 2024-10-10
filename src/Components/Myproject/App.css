@@ -1,0 +1,295 @@
+
+:root {
+
+    --red:#f40606;
+    --orange:#FFA500;
+
+}
+
+
+*
+{
+    font-family:'Gill Sans';
+    font:bold
+    
+}
+
+body{
+    margin: 0px;
+}
+
+
+/*Header*/
+
+.navbar{
+
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    background:linear-gradient(to bottom right, rgb(122, 230, 131),yellow);
+}
+
+a{
+
+    color: black;
+    text-decoration: none;
+}
+
+
+.navbar{
+
+    z-index: 100;
+}
+
+.navbar img{
+
+    width: 100px;
+    height: 50px;
+}
+
+
+
+/* Mainpage*/
+
+.toaster{
+
+padding-top: 80px;
+}
+
+
+
+p{
+    text-align: start;
+}
+
+.heading h1{
+
+    padding-top:10px;
+    text-transform: initial;
+    text-decoration: underline solid 1px black;
+    
+}
+
+.mobileimg{
+    display: none;
+}
+
+.sideimg img{
+
+    width: auto;
+    height: 300px;   
+}
+
+.highlight{
+
+    color: yellow;
+}
+
+.Whyrights{
+
+    background-color: aliceblue;
+}
+
+
+.Whyrights h4{
+
+    text-align: center;
+    text-decoration: underline solid 1px black;
+}
+
+.Whyrights p{
+
+    font-family:'Segoe UI', Tahoma;
+   text-align: start;
+
+}
+
+.Whyrights p i
+{
+    padding-right: 5px;
+}
+
+
+.messagebox{
+
+    background-color: rgb(222, 245, 220);
+}
+
+.sideimg img{
+
+    width: 400px;
+    height: 240px;
+}
+
+.mobileimg{
+
+    width: 400px;
+    height: 240px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+
+.gap{
+
+    padding-top: 20px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.center .card{
+
+    background-color: antiquewhite;
+}
+
+
+/* Search Page  */
+
+.span{
+
+    color: var(--orange);
+}
+
+.spans{
+
+    color: var(--red);
+}
+
+.formcard{
+
+    padding-top: 90px;
+    text-align: start;
+    width: 500px;
+    
+}
+
+.form input{
+
+    padding: 5px;
+}
+
+
+.form h6{
+    text-align: start;
+}
+
+
+.fillformimg img{
+
+    width: 700px;
+    height: 600px;
+}
+
+.containerimage img{
+
+    height: 100px;
+    width: 100px;
+}
+
+/*Welcomepage*/
+
+.welcomecard{
+  padding-top: 70px;
+   display: flex;
+   text-align: start;
+   justify-content: left;
+   height:100px; 
+}
+
+.loginform{
+
+    background-color: rgb(175, 222, 46);
+    margin: 5px;
+}
+.loginform CFormInput{
+
+    padding-left: 10px;
+}
+
+
+.containerimage{
+
+    width: 200px;
+    height: 100px;
+}
+
+.mainimg img{
+
+    width: 800px;
+    height: 300px;
+}
+
+
+/*Footer*/
+
+
+.Footer{
+
+    background:yellow;
+    width: 100%;
+
+}
+
+.Footer p{
+
+    font-family: 'Arial Narrow Bold';
+    margin: 10px;
+    text-align: start;
+}
+
+.right p{
+
+    text-align: right;
+}
+.span{
+
+    color: red;
+}
+
+.Footer p a{
+
+    text-decoration: none;
+    
+}
+
+
+@media screen and (min-width: 480px) {
+   
+    body{
+        background-color: rgb(179, 243, 179);
+    }
+
+   .fillformimg{
+
+    display: block;
+   }
+    
+  }
+
+  @media screen  and (min-width:480px) and (max-width:900px){
+    
+    .fillformimg{
+
+        display: none;
+       }
+
+
+
+       .mobileimg{
+
+        display: block;
+       }
+
+       .mainimg{
+        display: none;
+       }
+
+       .sideimg{
+
+        padding-top: 30px;
+       }
+  }
