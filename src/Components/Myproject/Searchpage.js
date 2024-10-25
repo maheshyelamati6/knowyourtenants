@@ -2,8 +2,10 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { CFormInput,CFormTextarea,CButton } from '@coreui/react';
 import "./App.css";
-import {db} from "./firebaseconfig";
+import {db,storage} from "./firebaseconfig";
 import{get,ref} from 'firebase/database';
+
+
 
 
 
@@ -17,15 +19,25 @@ const Searchpage = () => {
   const[taddress,Settaddress]=useState("");
   const[ttown,Setttwon]=useState("");
   const[stay,Setstay]=useState("");
-  const[imgpath, Setimgpath] = useState('');
+  const [image, setImage] = useState();
   const[Message,Setmessage]=useState("");
+ 
 
+  const imageupload=()=>{
 
+    for(let i=0; i<image.length;i++)
+
+     {
+      const imageRef= ref(storage,`/Images/${image[i].name}`);
+     }
+
+  }
+
+ 
 
   const submitdata=(e)=>{
     e.preventDefault();
-
-
+  
     if(name.length===0)
       {
       alert('Name cannot be Empty!')
@@ -64,15 +76,11 @@ const Searchpage = () => {
        alert('Tenant Stay cannot be Empty!')
        
       }
-  
-    else if(imgpath.length===0)
-        {
-     
-         alert('Image Field cannot be Empty!')
-         
-        }
-  
-  
+
+     else if (!image) {
+        alert("Please upload a file first!")
+    }
+
        else if(Message.length===0)
           {
        
@@ -83,7 +91,7 @@ const Searchpage = () => {
   else
   {
     e.preventDefault();
-    axios.post("https://know-your-tennant-default-rtdb.firebaseio.com/SearchTenant.json",{name,place,tname,taddress,ttown,imgpath,stay,Message})
+    axios.post("https://know-your-tennant-default-rtdb.firebaseio.com/SearchTenant.json",{name,place,tname,taddress,ttown,stay,image,Message})
     .then(()=>{
       alert("Data Posted Successfully!....");
       Setname("");
@@ -92,7 +100,6 @@ const Searchpage = () => {
       Settaddress("");
       Setttwon("");
       Setstay("");
-      Setimgpath("");
       Setmessage("");
       
     })
@@ -160,15 +167,20 @@ const Searchpage = () => {
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Address where Tenant Lived" placeholder="Please Enter Address where Tenant Lived" value={taddress} onChange={(e)=>Settaddress(e.target.value)}  />
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Town Name where Tenant Lived" placeholder="Please Enter Town Name where Tenant Lived"value={ttown} onChange={(e)=>Setttwon(e.target.value)}   />
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Period of Stay in Months" placeholder="Please Enter Period of Stay" value={stay} onChange={(e)=>Setstay(e.target.value)}  />
-                <CFormInput type="url"  id="floatingInput"  floatingClassName="m-3" floatingLabel=" Please Enter URL" placeholder="Please Enter URL" value={imgpath} onChange={(e)=>Setimgpath(e.target.value)}/>
-
-
-<CFormTextarea className='mb-2'
+              
+                <CFormTextarea className='mb-2'
     id="exampleFormControlTextarea1"
     rows={3} value={Message} onChange={(e)=>Setmessage(e.target.value)} placeholder='Enter Message:)' 
   ></CFormTextarea>
 
-<CButton className='m-3' color="warning" type='submit'>Submit Form</CButton>
+<h5>Please Upload Image</h5>
+                <input type='file' accept='image/*' multiple onChange={(e)=>setImage(e.target.files)}   />
+                 
+
+
+<CButton className='m-3' color="warning" type='submit' onClick={imageupload}>Submit Form</CButton>
+
+
                 </form>
                 </div>
            </div>
