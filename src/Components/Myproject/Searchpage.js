@@ -166,12 +166,9 @@ const Searchpage = () => {
   ></CFormTextarea>
 
 <h5>Please Upload Image</h5>
-                <input type='file' accept='image/*' multiple onChange={(e)=>setImage(e.target.files)}   />
-                 
-
-
-<CButton className='m-3' color="warning" type='submit' onClick={imageupload}>Submit Form</CButton>
-
+<CFormInput type="url" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Period of Stay in Months" placeholder="Please Enter Period of Stay" value={image} onChange={(e)=>setImage(e.target.value)}  />
+     
+<CButton className='m-3' color="warning" type='submit'>Submit Form</CButton>
 
                 </form>
                 </div>
