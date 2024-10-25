@@ -23,15 +23,7 @@ const Searchpage = () => {
   const[Message,Setmessage]=useState("");
  
 
-  const imageupload=()=>{
-
-    for(let i=0; i<image.length;i++)
-
-     {
-      const imageRef= ref(storage,`/Images/${image[i].name}`);
-     }
-
-  }
+ 
 
  
 
