@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { CFormInput,CFormTextarea,CButton } from '@coreui/react';
 import "./App.css";
-import {db,storage} from "./firebaseconfig";
+import {db} from "./firebaseconfig";
 import{get,ref} from 'firebase/database';
 
 
@@ -159,15 +159,13 @@ const Searchpage = () => {
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Address where Tenant Lived" placeholder="Please Enter Address where Tenant Lived" value={taddress} onChange={(e)=>Settaddress(e.target.value)}  />
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Town Name where Tenant Lived" placeholder="Please Enter Town Name where Tenant Lived"value={ttown} onChange={(e)=>Setttwon(e.target.value)}   />
                 <CFormInput type="text" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Period of Stay in Months" placeholder="Please Enter Period of Stay" value={stay} onChange={(e)=>Setstay(e.target.value)}  />
-              
-                <CFormTextarea className='mb-2'
+                <CFormInput type="url" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter image url" placeholder="Please Enter Image url" value={image} onChange={(e)=>setImage(e.target.value)}  />
+
+    <CFormTextarea className='mb-2'
     id="exampleFormControlTextarea1"
     rows={3} value={Message} onChange={(e)=>Setmessage(e.target.value)} placeholder='Enter Message:)' 
   ></CFormTextarea>
-
-<h5>Please Upload Image</h5>
-<CFormInput type="url" id="floatingInput" floatingClassName="m-3" floatingLabel=" Please Enter Period of Stay in Months" placeholder="Please Enter Period of Stay" value={image} onChange={(e)=>setImage(e.target.value)}  />
-     
+ 
 <CButton className='m-3' color="warning" type='submit'>Submit Form</CButton>
 
                 </form>
